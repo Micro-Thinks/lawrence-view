@@ -1,7 +1,11 @@
+import LandingPage from "./LandingPage/page"
 export default function Home() {
   return (
     <div>
-      <h1>Lawrence View Hotel</h1>
+      <div className="bg-[url('/Landing-BG.png')] bg-cover bg-center h-[80vh]"
+      >
+      <LandingPage/>
+      </div>
     </div>
   );
 }
