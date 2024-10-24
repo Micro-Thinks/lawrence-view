@@ -4,7 +4,7 @@ import { navdData } from '../Helpers/Data';
 const Page = () => {
   return (
     <div>
-      <nav className=' bg-[#000000] px-24 py-4'>
+      <nav className=' bg-[#000000] px-16 py-4'>
         <ul className='flex  justify-between items-center'>
           {navdData.map((item, index) => (
             <div key={index} className='  text-white '>
