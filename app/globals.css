@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Font definitions */
+:root {
+  --font-tiro-bangla: "Tiro Bangla", sans-serif;
+  --font-readex-pro: "Readex Pro", sans-serif;
+}
+
+.font-heading {
+  font-family: var(--font-tiro-bangla);
+}
+
+.font-paragraph {
+  font-family: var(--font-readex-pro);
+}
