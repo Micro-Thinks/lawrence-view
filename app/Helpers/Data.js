@@ -28,4 +28,10 @@ export const RoomCards = [
         description : "Superior Suite Room is a very common and trendy accommodation specially for a married couple in that room we arrange a king-sized bed for 2 persons, an amenities room fridge, a mini bar, a private bathroom, and an air conditioner will make your stay comfortable.",
         button : "Book Now"
     },
+    {
+        Imgsrc : "/studio-apartment.jpeg" , 
+        name : "Studio Apartment",
+        description : "Superior Suite Room is a very common and trendy accommodation specially for a married couple in that room we arrange a king-sized bed for 2 persons, an amenities room fridge, a mini bar, a private bathroom, and an air conditioner will make your stay comfortable.",
+        button : "Book Now"
+    },
 ]

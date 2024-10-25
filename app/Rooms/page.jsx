@@ -16,16 +16,16 @@ const page = () => {
             {RoomCards.map((card, index) => (
               <div
                 key={index}
-                className="bg-white shadow-lg hover:scale-105 hover:border-[#c4a053] hover:border-5 duration-300 ease-in-out border  w-full max-w-sm rounded-xl   font-[sans-serif] overflow-hidden mx-auto mt-4 flex flex-col justify-between h-auto"
+                className="bg-white shadow-lg hover:scale-105 hover:border-[#c4a053] hover:border-5 duration-300 ease-in-out border  w-full max-w-sm rounded-xl   font-[sans-serif] overflow-hidden mx-auto mt-4 flex flex-col justify-between "
               >
                 <div className="">
                 <Image
-  height={384} // Matches w-96 (384px)
-  width={384}  // Matches w-96 (384px)
+  height={384} 
+  width={384}  
   src={card.Imgsrc}
   alt={card.name}
-  className="h-auto object-center rounded-lg"
-  quality={100} // Full quality
+  className="h-auto object-center rounded-t-lg"
+  quality={100} 
 />
 
                 </div>
@@ -38,7 +38,7 @@ const page = () => {
                 <div className="p-2 text-center">
                   <button
                     type="button"
-                    className="mt-6 px-4 py-2 text-white text-sm tracking-wider font-semibold border-none outline-none bg-[#c4a053] rounded-xl"
+                    className=" px-4 py-2 text-white text-sm tracking-wider font-semibold border-none outline-none bg-[#c4a053] rounded-xl"
                   >
                     {card.button}
                   </button>

@@ -1,11 +1,13 @@
-'use client'; 
-import { parseDate } from '@internationalized/date';
-import { DateRangePicker } from '@nextui-org/date-picker';
-import { useState } from 'react';
+'use client';
+import React, { useState } from 'react';
 
 const Page = () => {
   const [selectedOption, setSelectedOption] = useState('Select room');
   const [isOpen, setIsOpen] = useState(false);
+  const [dateRangeOpen, setDateRangeOpen] = useState(false);
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  const [formattedDateRange, setFormattedDateRange] = useState('');
 
   const options = [
     { value: '1 Room 2 adults', label: '1 Room 2 adults' },
@@ -19,6 +21,36 @@ const Page = () => {
     setIsOpen(false);
   };
 
+  const handleDateChange = (e) => {
+    const { name, value } = e.target;
+    if (name === 'startDate') {
+      setStartDate(value);
+    } else if (name === 'endDate') {
+      setEndDate(value);
+    }
+  };
+
+  const handleConfirm = () => {
+    if (startDate && endDate) {
+      const formattedStart = new Date(startDate).toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+      });
+      const formattedEnd = new Date(endDate).toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+      });
+      setFormattedDateRange(`${formattedStart} - ${formattedEnd}`);
+      setDateRangeOpen(false);
+    }
+  };
+
+  const toggleDateRange = () => {
+    setDateRangeOpen(!dateRangeOpen);
+  };
+
   return (
     <div>
       <div className="flex items-center justify-center h-screen bg-cover bg-center relative">
@@ -26,24 +58,58 @@ const Page = () => {
           Experience the Art of Hospitality
         </h1>
 
-        <div className="border-3 border-[#c4a053] p-4 space-x-2 rounded-xl flex bg-[#2c2c2c] bg-opacity-55">
-          <DateRangePicker
-            label="Stay duration"
-            isRequired
-            defaultValue={{
-              start: parseDate('2024-04-01'),
-              end: parseDate('2024-04-08'),
-            }}
-            className="w-96 h-10 bg-gray-700 text-white rounded-md"
-          />
-
+        <div className="border-3 border-[#c4a053] p-6 rounded-xl flex bg-[#2c2c2c] bg-opacity-55">
+          
+          {/* Single Input Date Range Picker */}
           <div className="relative">
             <div
-              className="p-2 bg-gray-100 text-black border h-10 w-48 rounded-xl border-gray-300 hover:border-blue-400 transition-all duration-300 ease-in-out cursor-pointer flex items-center justify-between"
+              className="p-2 bg-gray-100 text-black border h-10 w-96 border-gray-300 hover:border-blue-400 transition-all duration-300 ease-in-out cursor-pointer flex items-center justify-between"
+              onClick={toggleDateRange}
+            >
+              {formattedDateRange || 'Select date range'}
+             
+            </div>
+
+            {dateRangeOpen && (
+              <div className="absolute z-10 w-full mt-2 bg-white border border-gray-300 rounded-xl shadow-lg transition-all duration-300 ease-in-out p-4">
+                <div className="flex justify-between space-x-2">
+                  <input
+                    type="date"
+                    name="startDate"
+                    value={startDate}
+                    onChange={handleDateChange}
+                    className="border border-gray-400 py-2 px-3 w-1/2"
+                  />
+                  <input
+                    type="date"
+                    name="endDate"
+                    value={endDate}
+                    onChange={handleDateChange}
+                    className="border border-gray-400 py-2 px-3 w-1/2"
+                  />
+                </div>
+                <button
+                  onClick={handleConfirm}
+                  className="mt-2 bg-[#c4a053] text-white py-2 px-4 rounded-md"
+                >
+                  Confirm
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Room Selector */}
+          <div className="relative">
+            <div
+              className="p-2 bg-gray-100 text-black border h-10 w-48 border-gray-300 hover:border-blue-400 transition-all duration-300 ease-in-out cursor-pointer flex items-center justify-between"
               onClick={() => setIsOpen(!isOpen)}
             >
               {selectedOption}
-              <span className={`ml-2 h-2 w-2 flex items-center justify-center transition-transform ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
+              <span
+                className={`ml-2 h-2 w-2 flex items-center justify-center transition-transform ${
+                  isOpen ? 'rotate-180' : 'rotate-0'
+                }`}
+              >
                 ▼
               </span>
             </div>
@@ -63,7 +129,8 @@ const Page = () => {
             )}
           </div>
 
-          <button className="px-2 bg-[#c4a053] text-white rounded-md">
+          {/* Book Now Button */}
+          <button className="px-8 py-1 bg-[#c4a053] ml-3 text-black rounded-md">
             Book Now
           </button>
         </div>
