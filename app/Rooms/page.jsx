@@ -1,6 +1,6 @@
-import React from 'react';
-import { RoomCards } from '../Helpers/Data';
-import Image from 'next/image';
+import React from "react";
+import { RoomCards } from "../Helpers/Data";
+import Image from "next/image";
 
 const page = () => {
   return (
@@ -19,15 +19,14 @@ const page = () => {
                 className="bg-white shadow-lg hover:scale-105 hover:border-[#c4a053] hover:border-5 duration-300 ease-in-out border  w-full max-w-sm rounded-xl   font-[sans-serif] overflow-hidden mx-auto mt-4 flex flex-col justify-between "
               >
                 <div className="">
-                <Image
-  height={384} 
-  width={384}  
-  src={card.Imgsrc}
-  alt={card.name}
-  className="h-auto object-center rounded-t-lg"
-  quality={100} 
-/>
-
+                  <Image
+                    height={384}
+                    width={384}
+                    src={card.Imgsrc}
+                    alt={card.name}
+                    className="h-auto object-center rounded-t-lg"
+                    quality={100}
+                  />
                 </div>
                 <div className="flex-grow text-center px-4">
                   <h3 className="text-xl mt-1 font-bold">{card.name}</h3>
