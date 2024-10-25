@@ -1,21 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* global.css */
 
-/* Remove rounded edges for DateRangePicker */
-.nextui-date-range-picker {
-    border-radius: 0 !important;
-  }
-  
-  /* Override internal input/button styles to remove rounded edges */
-  .nextui-date-range-picker input,
-  .nextui-date-range-picker button,
-  .nextui-date-range-picker .nextui-input,
-  .nextui-date-range-picker .nextui-input-wrapper,
-  .nextui-date-range-picker .nextui-button {
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    border: none !important;
-  }
-  
+/* Font definitions */
+:root {
+  --font-tiro-bangla: "Tiro Bangla", sans-serif;
+  --font-readex-pro: "Readex Pro", sans-serif;
+}
+
+.font-heading {
+  font-family: var(--font-tiro-bangla);
+}
+
+.font-paragraph {
+  font-family: var(--font-readex-pro);
+}
