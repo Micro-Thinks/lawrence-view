@@ -1,6 +1,7 @@
 import LandingPage from "./LandingPage/page";
 import Rooms from "./Rooms/page";
 import Gallery from "./Gallery/page";
+import ServicesSection from "./Services/page";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
         <LandingPage />
         <Rooms />
         <Gallery />
+        <ServicesSection />
       </div>
     </div>
   );
