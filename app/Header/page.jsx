@@ -20,26 +20,26 @@ const page = () => {
           </Link>
         </div>
         <div className="">
-          <Image src="/LVH-logo.png" alt="lvh pic" height={100} width={100} />
+          <Image src="/LVH-logo.webp" alt="lvh pic" height={100} width={100} />
         </div>
         <div className="flex space-x-6">
           <div className="flex items-center justify-center space-x-2">
             <Image
-              src="/Facebook.png"
+              src="/Facebook.webp"
               alt="social-media icon"
               className=" h-10 w-full"
               height={16}
               width={50}
             />
             <Image
-              src="/instagram.png"
+              src="/instagram.webp"
               alt="social-media icon"
               className=" h-10 w-full"
               height={16}
               width={50}
             />
             <Image
-              src="/LinkedIn.png"
+              src="/LinkedIn.webp"
               alt="social-media icon"
               className=" h-8 w-full"
               height={16}

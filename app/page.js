@@ -1,16 +1,18 @@
 import LandingPage from "./LandingPage/page";
 import Rooms from "./Rooms/page";
 import Gallery from "./Gallery/page";
-import ServicesSection from "./Services/page";
+import Service from "./Service/page";
+import Footer from "./Footer/page";
 
 export default function Home() {
   return (
     <div>
-      <div className="bg-[url('/Landing-BG.png')] bg-cover bg-center h-screen">
+      <div className="bg-[url('/Landing-BG.webp')] bg-cover bg-center h-screen">
         <LandingPage />
         <Rooms />
         <Gallery />
-        <ServicesSection />
+        <Service />
+        <Footer />
       </div>
     </div>
   );
