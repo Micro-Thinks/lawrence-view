@@ -1,6 +1,6 @@
 export const navdData = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/" },
+  { name: "About", href: "/Aboutus" },
   { name: "Room & Rates", href: "/" },
   { name: "Gallery", href: "/Gallery" },
   { name: "Dine", href: "/" },
@@ -65,5 +65,64 @@ export const GalleryCard = [
   },
   {
     Imgsrc: "/g1.webp",
+  },
+];
+
+export const AboutContent = [
+  {
+    span: "Experience Unparalleled Comfort at Lawrence View Hotel",
+    p: "Are you planning a trip to Lahore and in search of a top-notch accommodation that offers luxury and convenience? Look no further than Lawrence View Hotel! We take pride in providing the best guest house and hotel experience in the city. Our range of rooms, suites, and amenities ensures that your stay with us will be nothing short of extraordinary.",
+  },
+  {
+    span: "Discover the Best Hotels in Lahore",
+    p: "At Lawrence View Hotel, we redefine hospitality with our exceptional services and top-of-the-line facilities. Our hotel is strategically located in Lahore, offering easy access to all major attractions and business centers in the city.",
+  },
+  {
+    span: "Elegant Rooms and Suites",
+    p: "Our hotel boasts a variety of well-appointed rooms and suites designed to cater to your specific needs. Whether you're traveling for business or leisure, we have the perfect accommodation for you.",
+  },
+  {
+    span: "Superior Room:",
+    p: "Enjoy the comfort and elegance of our superior rooms. Each room is thoughtfully designed to provide you with a relaxing and enjoyable stay.",
+  },
+  {
+    span: "Executive Room:",
+    p: "Experience luxury at its finest in our executive rooms. These rooms are equipped with premium amenities and provide an upscale experience.",
+  },
+  {
+    span: "Studio Apartment with Kitchen:",
+    p: "If you prefer a more homely feel, our studio apartments with a kitchen are the perfect choice. Cook your meals and enjoy the convenience of a home away from home.",
+  },
+  {
+    span: "Unwind in Luxury Suites",
+    p: "For the ultimate indulgence, our hotel offers exquisite luxury suites that redefine opulence and comfort. Comfort Inn and Suites: Immerse yourself in luxury with our comfort inn and suites. These lavish accommodations are designed for guests who appreciate the finer things in life. Jacuzzi Suites: Pamper yourself in our Jacuzzi suites and experience the utmost relaxation. Unwind in the warm embrace of a private Jacuzzi, making your stay truly unforgettable.",
+  },
+  {
+    span: "Convenient Booking and Superior Service",
+    p: "Booking your dream hotel room at Lawrence View Hotel is a breeze. Our user-friendly online booking platform ensures a hassle-free reservation process. You can easily secure your accommodation in just a few clicks.",
+  },
+  {
+    span: "Family-Friendly and Welcoming",
+    p: "We understand the importance of family, and that's why our hotel offers family-friendly services and facilities. From spacious rooms to warm hospitality, we ensure that every member of your family feels comfortable and taken care of",
+  },
+  {
+    span: "Explore Lahore with Ease",
+    p: "Our prime location allows you to explore the beauty of Lahore without any inconvenience. With major attractions and landmarks nearby, you can make the most of your visit to this vibrant city.",
+  },
+  {
+    span: "Hotels near Me:",
+    p: "Our hotel's central location makes it an ideal choice for travelers who prefer to stay close to major tourist spots.",
+  },
+  {
+    span: "In-Room Jacuzzi:",
+    p: "Indulge in a luxurious experience with our in-room Jacuzzi. Relax and rejuvenate after a day of sightseeing or business meetings.",
+  },
+  {
+    span: "Best Hotel in Lahore:",
+    p: "Don't settle for anything less than the best. Lawrence View Hotel has earned its reputation as one of the best hotels in Lahore due to our commitment to excellence and exceptional service.",
+  },
+  {
+    span: "Book Your Stay Today",
+    p: "Whether you're traveling for business or pleasure, Lawrence View Hotel is the perfect choice for a memorable and delightful stay in Lahore. Book your accommodation today and experience the pinnacle of luxury and comfort in the heart of the city. Your satisfaction is our priority, and we guarantee an experience that will exceed your expectations. Come and enjoy the true essence of Lahore with us!  ",
   },
 ];
