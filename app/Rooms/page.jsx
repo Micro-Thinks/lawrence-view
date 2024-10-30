@@ -28,27 +28,27 @@ const Page = () => {
         </div>
 
         <section className="relative">
-          <div className="flex items-center  justify-between mt-6">
+          <div className="flex items-center  justify-center mt-6">
             <button
               onClick={handlePrev}
               disabled={currentIndex === 0}
               className="p-2   rounded-full "
             >
-              <Image src='/Left-arrow.webp' alt='right-arrow' height={20} width={20} className=' h-auto w-full' />
+              <Image src='/Left-arrow.webp' alt='right-arrow' height={25} width={25} className=' h-auto w-full' />
 
               
             </button>
 
-            <div className="grid grid-cols-3 gap-4 overflow-hidden w-full max-w-8xl">
+            <div className="grid grid-cols-3 gap-4 overflow-hidden w-full max-w-5xl">
               {RoomCards.slice(currentIndex, currentIndex + visibleCards).map((card, index) => (
                 <div
                   key={index}
-                  className="bg-white shadow-lg  hover:border-[#c4a053]  duration-300 ease-in-out border w-full max-w-sm rounded-xl font-[sans-serif] overflow-hidden flex flex-col justify-between mx-auto mt-4"
+                  className="bg-white shadow-lg  hover:border-[#c4a053]  duration-300 ease-in-out border w-full max-w-xs rounded-xl font-[sans-serif] overflow-hidden flex flex-col  mx-auto mt-4"
                 >
                   <div className="">
                     <Image
-                      height={384}
-                      width={384}
+                      height={270}
+                      width={330}
                       src={card.Imgsrc}
                       alt={card.name}
                       className="h-full object-center rounded-t-lg"
@@ -57,14 +57,14 @@ const Page = () => {
                   </div>
                   <div className="flex-grow text-center px-4">
                     <h3 className="text-xl mt-1 font-bold">{card.name}</h3>
-                    <p className="mt-3 text-sm text-gray-500 leading-relaxed">
+                    <p className="mt-3 text-xs text-black leading-relaxed">
                       {card.description}
                     </p>
                   </div>
                   <div className="p-2 text-center">
                     <button
                       type="button"
-                      className="px-4 py-2 text-white text-sm tracking-wider font-semibold border-none outline-none bg-[#c4a053] rounded-xl"
+                      className="px-4 py-2 text-white text-sm tracking-wider font-semibold border-none outline-none bg-[#C4A053] rounded-xl"
                     >
                       {card.button}
                     </button>
@@ -78,7 +78,7 @@ const Page = () => {
               disabled={currentIndex >= RoomCards.length - visibleCards}
               className="p-2 text-white  rounded-full "
             >
-              <Image src='/right-arrow.png' alt='right-arrow' height={20} width={20} className=' h-auto w-full' />
+              <Image src='/right-arrow.png' alt='right-arrow' height={25} width={25}  className=' h-auto w-full' />
             </button>
           </div>
         </section>
