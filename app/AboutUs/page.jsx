@@ -4,10 +4,8 @@ const page = () => {
   return (
     <div className="bg-black text-white p-14">
       <div className=" flex  items-center flex-col">
-        <h1 className="text-3xl  ">About</h1>
-        <h2 className="text-2xl font-bold mt-4">
-          Luxury Accommodation in Lahore
-        </h2>
+        <h1 className="">About</h1>
+        <h2 className=" mt-4">Luxury Accommodation in Lahore</h2>
       </div>
       <div>
         {AboutContent.map((content, index) => (

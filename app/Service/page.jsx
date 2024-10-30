@@ -49,7 +49,7 @@ const page = () => {
 
   return (
     <div className="min-h-screen bg-black text-white py-16">
-      <h1 className="text-4xl font-bold text-center mb-16">Services</h1>
+      <h1 className=" text-center mb-16">Services</h1>
 
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
