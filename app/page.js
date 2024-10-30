@@ -1,6 +1,6 @@
 import LandingPage from "./LandingPage/page";
 import Rooms from "./Rooms/page";
-import Gallery from "./Gallery/page";
+import Gallery from "./Components/Gallery/page";
 import Service from "./Service/page";
 
 export default function Home() {
