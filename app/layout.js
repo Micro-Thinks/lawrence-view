@@ -1,8 +1,8 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "./Header/page";
-import Navbar from "./Navbar/page";
-import Footer from "./Footer/page";
+import Header from "./Components/Header/page";
+import Navbar from "./Components/Navbar/page";
+import Footer from "./Components/Footer/page";
 
 const tiroBangla = localFont({
   src: "/fonts/TiroBangla-Regular.ttf",

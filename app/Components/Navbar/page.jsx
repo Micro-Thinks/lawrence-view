@@ -1,5 +1,5 @@
 import React from 'react';
-import { navdData } from '../Helpers/Data';
+import { navdData } from '../../Helpers/Data';
 
 const Page = () => {
   return (
