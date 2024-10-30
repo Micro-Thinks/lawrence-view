@@ -86,7 +86,7 @@ const Page = () => {
               />
             </button>
           </div>
-          <div className="flex flex-col items-center justify-center text-white text-3xl pt-10">
+          <div className="flex flex-col items-center justify-center text-white text-3xl pt-20">
             <h1>Best Hotels In Lahore</h1>
           </div>
           <div className="flex flex-col items-center justify-center text-white text-normal pt-10">

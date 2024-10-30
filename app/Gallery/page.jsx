@@ -13,7 +13,7 @@ const Page = () => {
 
         <section className="relative">
           <div className="flex items-center justify-between mt-6">
-            <div className="grid grid-cols-4 grid-rows-3 gap-4 overflow-hidden w-full max-w-8xl">
+            <div className="grid grid-cols-4 grid-rows-3 gap-4 overflow-hidden w-full max-w-8xl p-8">
               {GalleryCard.map((card, index) => (
                 <div
                   key={index}
