@@ -15,7 +15,7 @@ const page = () => {
                     </Link>
                     </div>
                 <div>
-                    <Image src='/LVH-logo.png' alt="lvh pic" height={100} width={100} />
+                    <Image src='/LVH-logo.png' alt="lvh pic" className="h-auto w-full" height={100} width={100} />
                 </div>
                 <div className="flex space-x-6">
                     <div className="flex items-center justify-center space-x-2">
