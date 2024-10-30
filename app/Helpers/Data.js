@@ -30,7 +30,7 @@ export const RoomCards = [
     button: "Book Now",
   },
   {
-    Imgsrc: "/studio-apartment.jpeg",
+    Imgsrc: "/studio-apartment(2).png",
     name: "Studio Apartment",
     description:
       "Superior Suite Room is a very common and trendy accommodation specially for a married couple in that room we arrange a king-sized bed for 2 persons, an amenities room fridge, a mini bar, a private bathroom, and an air conditioner will make your stay comfortable.",
@@ -182,7 +182,7 @@ export const RoomRates = [
       ]
   },
   {
-    Imgsrc: "/studio-apartment.jpeg",
+    Imgsrc: "/studio-apartment(2).png",
     name: "Studio Apartment",
     description:
       "Double, Full, Bathroom with shower, Seating area, Wireless internet, Remote control TV, Fridge, Minibar, Fan, Individually controlled air conditioning, Full-length mirror, Desk, Desk lamp, Free local calls, Newspaper, Hairdryer, Room safe, Private bathroom, Operator 24 hours, Free toiletries, and Flat Screen",
