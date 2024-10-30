@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react';
-import { RoomCards } from '../Helpers/Data';
+import { RoomCards } from '../../Helpers/Data';
 import Image from 'next/image';
 
 const Page = () => {

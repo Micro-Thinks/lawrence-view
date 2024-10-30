@@ -1,7 +1,7 @@
-import LandingPage from "./LandingPage/page";
-import Rooms from "./Rooms/page";
+import LandingPage from "./Components/LandingPage/page";
+import Rooms from "./Components/Rooms/page";
 import Gallery from "./Components/Gallery/page";
-import Service from "./Service/page";
+import Service from "./Components/Service/page";
 
 export default function Home() {
   return (
