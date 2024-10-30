@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "./Header/page";
 import Navbar from "./Navbar/page";
+import Footer from "./Footer/page";
 
 const tiroBangla = localFont({
   src: "/fonts/TiroBangla-Regular.ttf",
@@ -31,6 +32,7 @@ export default function RootLayout({ children }) {
         <Header />
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

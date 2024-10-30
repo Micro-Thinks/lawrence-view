@@ -29,7 +29,7 @@ const HotelContactNewsletter = () => {
   return (
     <div className="w-full">
       {/* Newsletter Section */}
-      <div className="relative w-full h-[200px] bg-[url('/subscribe.webp')] bg-cover bg-center">
+      <div className="relative w-full h-[100px] bg-[url('/subscribe.webp')] bg-cover bg-center">
         <div className="absolute inset-0 bg-black/50">
           <div className="h-full flex items-center justify-center px-4 lg:px-8">
             <div className="w-full max-w-6xl flex flex-col md:flex-row items-center justify-center gap-6">
