@@ -66,6 +66,15 @@ export const GalleryCard = [
   {
     Imgsrc: "/g1.webp",
   },
+  {
+    Imgsrc: "/g2.webp",
+  },
+  {
+    Imgsrc: "/g3.webp",
+  },
+  {
+    Imgsrc: "/g4.webp",
+  },
 ];
 
 export const AboutContent = [

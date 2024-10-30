@@ -15,3 +15,27 @@
 .font-paragraph {
   font-family: var(--font-readex-pro);
 }
+/* Global styles for headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+  font-family: var(--font-tiro-bangla);
+}
+
+/* Global styles for paragraphs */
+p {
+  font-family: var(--font-readex-pro);
+}
+h1 {
+  font-size: 64px;
+}
+h2 {
+  font-size: 36px;
+}
+span {
+  font-size: 32px;
+}
