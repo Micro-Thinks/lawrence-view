@@ -29,8 +29,12 @@ export default function RootLayout({ children }) {
       <body
         className={`${tiroBangla.variable} ${readexPro.variable} antialiased`}
       >
+        <div>
+
+
         <Header />
         <Navbar />
+        </div>
         {children}
         <Footer />
       </body>
