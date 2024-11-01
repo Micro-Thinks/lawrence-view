@@ -21,7 +21,7 @@ const Page = () => {
 
   return (
     <div>
-      <main className="bg-black p-2 py-16">
+      <main className="bg-black p-2 py-16 ">
         <div className="flex flex-col items-center justify-center space-y-5 text-white text-3xl">
           <h1>Featured Rooms</h1>
           <span>Indulge in our finest luxuries with exclusive packages</span>
