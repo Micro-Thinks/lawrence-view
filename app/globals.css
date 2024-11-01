@@ -78,3 +78,14 @@ h2 {
 ::-webkit-scrollbar-thumb {
   background: black;
 }
+
+
+::selection {
+  background-color: #c4a053; 
+  color: #000000; 
+}
+
+::-webkit-selection {
+  background-color: #c4a053;
+  color: #000000; 
+}

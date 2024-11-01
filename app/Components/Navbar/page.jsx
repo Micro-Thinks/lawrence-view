@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const Page = () => {
   return (
-    <div>
+    <div className='fixed top-2 left-0 right-0 z-50 '>
       <nav className=' bg-[#000000] px-16 py-4  mt-6 flex items-center justify-between'>
       <div className="">
           <Image src="/LVH-logo.webp" alt="lvh pic" height={100} width={100} />
@@ -13,7 +13,7 @@ const Page = () => {
         <ul className='flex justify-between items-center'>
   {navdData.map((item, index) => (
     <li key={index} className='text-white hover:text-[#c4a053] duration-300 ease-in-out mx-4'>
-      <a href={item.href}>{item.name}</a>
+      <Link href={item.href}>{item.name}</Link>
     </li>
   ))}
 </ul>

@@ -32,7 +32,7 @@ const Page = () => {
 
   return (
     <div
-      className="relative w-full max-w-full mx-auto 
+      className="relative w-full mt-36 max-w-full mx-auto 
        overflow-hidden bg-black"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
