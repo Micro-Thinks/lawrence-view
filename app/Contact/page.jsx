@@ -24,7 +24,7 @@ function page() {
           className=" h-[60vh] rounded-xl"
         />
       </div>
-      <div className="flex py-12 px-4 w-[100vw]">
+      <div className="flex py-12 space-x-6 px-4 w-[100vw]">
         <div className="w-[40vw]">
           <h2 className="uppercase">How to contact</h2>
           <span>
@@ -33,8 +33,8 @@ function page() {
             text ever since the 1500s
           </span>
         </div>
-        <div className="w-[60vw] flex justify-center">
-          <form className="rounded-md w-full max-w-md space-y-4">
+        <div className="w-[45vw] flex justify-center ">
+          <form className="rounded-md w-full  space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <input
                 type="text"
@@ -61,12 +61,14 @@ function page() {
               placeholder="Write your message..."
               className="w-full p-2 rounded-md border border-[#C4A053]  text-black placeholder-gray-400 focus:outline-none  h-32 resize-none"
             ></textarea>
-            <button
-              type="submit"
-              className="bg-[#C4A053] text-black font-bold py-2 px-4 rounded-md  focus:outline-none w-[1/6] translate-x-44"
-            >
-              Submit
-            </button>
+            <div className="flex justify-center">
+              <button
+                type="submit"
+                className="bg-[#C4A053] text-black font-bold py-2 px-4 rounded-md  focus:outline-none w-[1/6]"
+              >
+                Submit
+              </button>
+            </div>
           </form>
         </div>
       </div>
