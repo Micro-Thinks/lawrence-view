@@ -1,6 +1,6 @@
 "use client";
 
-import { GalleryCard } from "../Helpers/Data";
+import { GalleryPage } from "../Helpers/Data";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -22,12 +22,18 @@ const Page = () => {
         <section className="relative">
           <div className="flex items-center justify-between mt-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 overflow-hidden w-full max-w-8xl p-8">
-              {GalleryCard.map((card, index) => (
+              {GalleryPage.map((card, index) => (
                 <div
                   key={index}
                   className={`bg-white shadow-lg border w-full max-w-sm rounded-xl font-[sans-serif] overflow-hidden flex flex-col justify-between mx-auto mt-4 relative
-                    ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
-                    transition-all duration-500 ease-out delay-[${index * 100}ms]
+                    ${
+                      isLoaded
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-10"
+                    }
+                    transition-all duration-500 ease-out delay-[${
+                      index * 100
+                    }ms]
                     hover:bg-gray-800 hover:shadow-xl hover:scale-105 transform hover:rotate-2
                     `}
                   style={{ perspective: "1000px" }}
