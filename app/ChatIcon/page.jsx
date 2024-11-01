@@ -1,5 +1,6 @@
 "use client"
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const ChatIcon = () => {
@@ -22,7 +23,7 @@ const ChatIcon = () => {
       }`}
     >
       {visible && (
-        <a
+        <Link
           href="https://wa.me/03206361916"
           target="_blank"
           rel="noopener noreferrer"
@@ -34,7 +35,7 @@ const ChatIcon = () => {
             width={100}
             className="z-50 h-24 w-24"
           />
-        </a>
+        </Link>
       )}
     </div>
   );
