@@ -1,6 +1,6 @@
 function page() {
   return (
-    <div className="bg-black text-white p-4 ">
+    <div className="bg-black text-white p-4 mt-32">
       <div className="text-center">
         <h1>Contact</h1>
         <span className="block">

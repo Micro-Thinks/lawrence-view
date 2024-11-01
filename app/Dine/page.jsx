@@ -3,7 +3,7 @@ import Image from "next/image";
 function page() {
   return (
     <div>
-      <div className="bg-black text-white">
+      <div className="bg-black text-white mt-32">
         <div className="text-center p-4">
           <h1>Dining</h1>
           <span className="block">
