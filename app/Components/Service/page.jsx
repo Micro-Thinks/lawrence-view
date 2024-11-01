@@ -1,7 +1,9 @@
+"use client"
 import Image from "next/image";
 import React from "react";
+import { motion } from "framer-motion";
 
-const page = () => {
+const Page = () => {
   const services = [
     {
       title: "BIRTHDAY",
@@ -49,40 +51,60 @@ const page = () => {
 
   return (
     <div className="min-h-screen bg-black text-white py-16">
-      <h1 className=" text-center mb-16">Services</h1>
+      <h1 className="text-center mb-16">Services</h1>
 
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={service.title}
-              className="group relative bg-transparent  rounded-lg p-6 
-                        overflow-hidden"
+              className="group relative bg-transparent rounded-lg p-6 overflow-hidden"
+              initial={{ opacity: 0, y: 20 }} // Initial state
+              animate={{ opacity: 1, y: 0 }} // Animate to this state
+              transition={{
+                duration: 0.5,
+                delay: index * 0.1, // Staggered entrance
+              }}
+              whileHover={{
+                scale: 1.05, // Scale up on hover
+                boxShadow: "0 20px 40px rgba(0, 0, 0, 0.5)", // Increase shadow
+                transition: { duration: 0.3 },
+              }}
             >
               {/* Image */}
-              <div
-                className="bg-white relative flex items-center justify-center p-20 mb-4 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl
-                       cursor-pointer overflow-hidden rounded-lg  hover:border-[#c4a053]"
+              <motion.div
+                className="bg-white relative flex items-center justify-center p-20 mb-4 cursor-pointer overflow-hidden rounded-lg"
+                whileHover={{ scale: 1.1 }} // Image zoom on hover
               >
                 <Image
                   height={100}
                   width={100}
                   src={service.imgsrc}
                   alt={service.title}
-                  className="h-auto object-cover transform transition-transform duration-300 
-                           group-hover:scale-110"
+                  className="h-auto object-cover transition-transform duration-300"
                 />
-              </div>
+              </motion.div>
 
               {/* Content */}
               <div className="text-center">
-                <h3 className="text-xl font-bold text-[#c4a053] mb-2">
+                <motion.h3
+                  className="text-xl font-bold mb-2 transition-colors duration-300 group-hover:text-[#c4a053]"
+                  whileHover={{ scale: 1.05 }} // Slight scale effect
+                >
                   {service.title}
-                </h3>
-                <p className="text-2xl font-bold mb-4">{service.price}</p>
-                <h4 className="text-lg font-semibold mb-4">
+                </motion.h3>
+                <motion.p
+                  className="text-2xl font-bold mb-4 transition-colors duration-300 group-hover:text-[#c4a053]"
+                  whileHover={{ scale: 1.05 }} // Slight scale effect
+                >
+                  {service.price}
+                </motion.p>
+                <motion.h4
+                  className="text-lg font-semibold mb-4 transition-colors duration-300 group-hover:text-[#c4a053]"
+                  whileHover={{ scale: 1.05 }} // Slight scale effect
+                >
                   {service.subTitle}
-                </h4>
+                </motion.h4>
 
                 <div className="space-y-2">
                   {service.features.map((feature, idx) => (
@@ -92,10 +114,7 @@ const page = () => {
                   ))}
                 </div>
               </div>
-
-              {/* Hover Effect Overlay */}
-              <div className=""></div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -103,4 +122,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
