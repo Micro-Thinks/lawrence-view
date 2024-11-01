@@ -1,140 +1,81 @@
-'use client';
-import React, { useState } from 'react';
+"use client";
+import Image from "next/image";
+import { useState } from "react";
 
 const Page = () => {
-  const [selectedOption, setSelectedOption] = useState('Select room');
-  const [isOpen, setIsOpen] = useState(false);
-  const [dateRangeOpen, setDateRangeOpen] = useState(false);
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
-  const [formattedDateRange, setFormattedDateRange] = useState('');
+  const images = ["/slide1.webp", "/slide2.webp", "/slide3.webp"]; // Array of images
+  const [currentIndex, setCurrentIndex] = useState(0); // Track the current image index
+  const [showButtons, setShowButtons] = useState(false); // Track button visibility
 
-  const options = [
-    { value: '1 Room 2 adults', label: '1 Room 2 adults' },
-    { value: '2 Room 2 adults', label: '2 Room 2 adults' },
-    { value: '2 Room 3 adults', label: '2 Room 3 adults' },
-    { value: '2 Room 4 adults', label: '2 Room 4 adults' },
-  ];
-
-  const handleOptionClick = (value) => {
-    setSelectedOption(value);
-    setIsOpen(false);
+  // Function to go directly to the first image
+  const goToPrevious = () => {
+    setCurrentIndex(currentIndex - 1);
   };
 
-  const handleDateChange = (e) => {
-    const { name, value } = e.target;
-    if (name === 'startDate') {
-      setStartDate(value);
-    } else if (name === 'endDate') {
-      setEndDate(value);
+  // Function to go directly to the third image
+  const goToNext = () => {
+    if (currentIndex >= 2) {
+      setCurrentIndex(0);
+    } else {
+      setCurrentIndex(currentIndex + 1);
     }
   };
 
-  const handleConfirm = () => {
-    if (startDate && endDate) {
-      const formattedStart = new Date(startDate).toLocaleDateString('en-US', {
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric',
-      });
-      const formattedEnd = new Date(endDate).toLocaleDateString('en-US', {
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric',
-      });
-      setFormattedDateRange(`${formattedStart} - ${formattedEnd}`);
-      setDateRangeOpen(false);
-    }
+  // Handlers for mouse enter and leave
+  const handleMouseEnter = () => {
+    setShowButtons(true);
   };
 
-  const toggleDateRange = () => {
-    setDateRangeOpen(!dateRangeOpen);
+  const handleMouseLeave = () => {
+    setShowButtons(false);
   };
 
   return (
-    <div>
-      <div className="flex items-center justify-center h-screen bg-cover bg-center relative">
-        <h1 className="absolute text-white text-3xl lg:text-4xl text-center transform -translate-x-1/2 -translate-y-1/2 top-1/3 left-1/2">
-          Experience the Art of Hospitality
-        </h1>
-
-        <div className="border-3 border-[#c4a053] p-6 rounded-xl flex bg-[#2c2c2c] bg-opacity-55">
-          
-          {/* Single Input Date Range Picker */}
-          <div className="relative">
-            <div
-              className="p-2 bg-gray-100 text-black border h-10 w-96 border-gray-300 hover:border-blue-400 transition-all duration-300 ease-in-out cursor-pointer flex items-center justify-between"
-              onClick={toggleDateRange}
-            >
-              {formattedDateRange || 'Select date range'}
-             
-            </div>
-
-            {dateRangeOpen && (
-              <div className="absolute z-10 w-full mt-2 bg-white border border-gray-300 rounded-xl shadow-lg transition-all duration-300 ease-in-out p-4">
-                <div className="flex justify-between space-x-2">
-                  <input
-                    type="date"
-                    name="startDate"
-                    value={startDate}
-                    onChange={handleDateChange}
-                    className="border border-gray-400 py-2 px-3 w-1/2"
-                  />
-                  <input
-                    type="date"
-                    name="endDate"
-                    value={endDate}
-                    onChange={handleDateChange}
-                    className="border border-gray-400 py-2 px-3 w-1/2"
-                  />
-                </div>
-                <button
-                  onClick={handleConfirm}
-                  className="mt-2 bg-[#c4a053] text-white py-2 px-4 rounded-md"
-                >
-                  Confirm
-                </button>
-              </div>
-            )}
+    <div
+      className="relative w-full max-w-full mx-auto 
+       overflow-hidden bg-black"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Image container for sliding effect */}
+      <div
+        className="flex transition-transform duration-700"
+        style={{
+          transform: `translateX(-${currentIndex * 100}%)`, // Slide effect
+        }}
+      >
+        {images.map((src, index) => (
+          <div className="min-w-full" key={index}>
+            <Image
+              src={src} // Show current image based on currentIndex
+              alt={`Slider Image ${index + 1}`}
+              className="w-full h-auto object-cover"
+              width={1000}
+              height={100}
+            />
           </div>
-
-          {/* Room Selector */}
-          <div className="relative">
-            <div
-              className="p-2 bg-gray-100 text-black border h-10 w-48 border-gray-300 hover:border-blue-400 transition-all duration-300 ease-in-out cursor-pointer flex items-center justify-between"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              {selectedOption}
-              <span
-                className={`ml-2 h-2 w-2 flex items-center justify-center transition-transform ${
-                  isOpen ? 'rotate-180' : 'rotate-0'
-                }`}
-              >
-                ▼
-              </span>
-            </div>
-
-            {isOpen && (
-              <ul className="absolute z-10 w-48 mt-2 bg-white border border-gray-300 rounded-xl shadow-lg transition-all duration-300 ease-in-out opacity-100">
-                {options.map((option, index) => (
-                  <li
-                    key={index}
-                    onClick={() => handleOptionClick(option.value)}
-                    className="p-2 hover:bg-[#c4a053] hover:text-white cursor-pointer transition-colors duration-200 ease-in-out"
-                  >
-                    {option.label}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-
-          {/* Book Now Button */}
-          <button className="px-8 py-1 bg-[#c4a053] ml-3 text-black rounded-md">
-            Book Now
-          </button>
-        </div>
+        ))}
       </div>
+
+      {/* Navigation buttons - visible only when showButtons is true */}
+      {showButtons && (
+        <>
+          <button
+            onClick={goToPrevious}
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-opacity-50 text-white px-4 py-2 text-2xl rounded-full transition-opacity duration-300"
+            style={{ width: "50px", height: "50px" }} // Set button width and height
+          >
+            &#10094;
+          </button>
+          <button
+            onClick={goToNext}
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-opacity-50 text-white px-4 py-2 text-2xl rounded-full transition-opacity duration-300"
+            style={{ width: "50px", height: "50px" }} // Set button width and height
+          >
+            &#10095;
+          </button>
+        </>
+      )}
     </div>
   );
 };

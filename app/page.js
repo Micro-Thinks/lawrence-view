@@ -2,20 +2,25 @@ import LandingPage from "./Components/LandingPage/page";
 import Rooms from "./Components/Rooms/page";
 import Gallery from "./Components/Gallery/page";
 import Service from "./Components/Service/page";
+import BookingEngine from "./Components/BookingEngine/page";
 import ChatIcon from "./ChatIcon/page";
 
 export default function Home() {
   return (
     <div>
-    <div className="bg-[url('/Landing-BG.webp')] bg-cover bg-center h-screen filter  contrast-125">
-  <LandingPage />
-</div>
+      <div>
+        <LandingPage />
+      </div>
+      <div className="py-4 bg-black">
+        <BookingEngine />
+      </div>
 
-
-      <Rooms />
+      <div className="">
+        <Rooms />
+      </div>
       <Gallery />
       <Service />
-      <ChatIcon/>
+      <ChatIcon />
     </div>
   );
 }
