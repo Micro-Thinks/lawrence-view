@@ -33,7 +33,7 @@ function page() {
             text ever since the 1500s
           </span>
         </div>
-        <div className="w-[45vw] flex justify-center ">
+        <div className="w-[60vw] flex justify-center ">
           <form className="rounded-md w-full  space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <input
