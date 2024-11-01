@@ -56,7 +56,7 @@ const page = () => {
           {services.map((service, index) => (
             <div
               key={service.title}
-              className="group relative bg-transparent hover:border-2 rounded-lg p-6 
+              className="group relative bg-transparent  rounded-lg p-6 
                         overflow-hidden"
             >
               {/* Image */}

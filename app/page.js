@@ -6,7 +6,7 @@ import Service from "./Components/Service/page";
 export default function Home() {
   return (
     <div>
-    <div className="bg-[url('/Landing-BG.webp')] bg-cover bg-center h-screen filter brightness-75 contrast-125">
+    <div className="bg-[url('/Landing-BG.webp')] bg-cover bg-center h-screen filter  contrast-125">
   <LandingPage />
 </div>
 
