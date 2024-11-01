@@ -24,32 +24,40 @@ const page = () => {
         </div>
         <div className="flex space-x-6">
           <div className="flex items-center justify-center space-x-2">
+          <Link href='https://www.facebook.com/LawrenceViewHotelLahore' target="_blank">
             <Image
               src="/Facebook.webp"
               alt="social-media icon"
               className=" h-10 w-full"
               height={16}
               width={50}
-            />
+              />
+              </Link>
+              <Link  href='https://www.instagram.com/lawrence.view.hotel.lahore/' target="_blank">
             <Image
               src="/instagram.webp"
               alt="social-media icon"
               className=" h-10 w-full"
-              height={16}
-              width={50}
-            />
+              height={25}
+              width={100}
+              />
+              </Link>
+              <Link href='/'>
             <Image
               src="/LinkedIn.webp"
               alt="social-media icon"
               className=" h-8 w-full"
               height={16}
               width={50}
-            />
+              />
+              </Link>
           </div>
           <div>
+            <Link href='/Contact'>
             <button className="bg-white hover:text-white hover:bg-[#c4a053] duration-300 ease-in-out font-semibold px-3 py-2 rounded-xl">
               Book Now
             </button>
+            </Link>
           </div>
         </div>
       </header>
