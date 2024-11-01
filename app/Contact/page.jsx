@@ -24,7 +24,7 @@ function page() {
           className=" h-[60vh] rounded-xl"
         />
       </div>
-      <div className="flex py-12 space-x-6 px-4 w-[100vw]">
+      <div className="flex py-12 space-x-6 px-4 ">
         <div className="w-[40vw]">
           <h2 className="uppercase">How to contact</h2>
           <span>
