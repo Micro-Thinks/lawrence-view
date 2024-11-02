@@ -3,33 +3,26 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion"; // Import Framer Motion for animations
 import { Icon } from "@iconify/react";
+import DatePicker from "react-datepicker"; // Import DatePicker
+import "react-datepicker/dist/react-datepicker.css"; // Import CSS for DatePicker
 
 function Page() {
   const [selectedOption, setSelectedOption] = useState("Select room");
   const [isOpen, setIsOpen] = useState(false);
   const [dateRangeOpen, setDateRangeOpen] = useState(false);
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
   const [formattedDateRange, setFormattedDateRange] = useState("");
   const [rooms, setRooms] = useState([{ id: 1, people: 1 }]);
 
-  const handleDateChange = (e) => {
-    const { name, value } = e.target;
-    if (name === "startDate") {
-      setStartDate(value);
-    } else if (name === "endDate") {
-      setEndDate(value);
-    }
-  };
-
-  const handleConfirm = () => {
+  const handleDateConfirm = () => {
     if (startDate && endDate) {
-      const formattedStart = new Date(startDate).toLocaleDateString("en-US", {
+      const formattedStart = startDate.toLocaleDateString("en-US", {
         month: "long",
         day: "numeric",
         year: "numeric",
       });
-      const formattedEnd = new Date(endDate).toLocaleDateString("en-US", {
+      const formattedEnd = endDate.toLocaleDateString("en-US", {
         month: "long",
         day: "numeric",
         year: "numeric",
@@ -37,10 +30,18 @@ function Page() {
       setFormattedDateRange(`${formattedStart} - ${formattedEnd}`);
       setDateRangeOpen(false);
     }
+    setDateRangeOpen(false)
   };
 
-  const toggleDateRange = () => {
-    setDateRangeOpen(!dateRangeOpen);
+  const clearDates = () => {
+    setStartDate(null);
+    setEndDate(null);
+    setFormattedDateRange("");
+    setDateRangeOpen(false);
+  };
+
+  const openDateRange = () => {
+    setDateRangeOpen(true); // Open the date range picker
   };
 
   const handlePeopleChange = (roomId, people) => {
@@ -66,37 +67,62 @@ function Page() {
         <div className="relative w-[44vw]">
           <div
             className="p-2 bg-gray-100 text-black border h-10 border-gray-300 transition-all duration-300 ease-in-out cursor-pointer flex items-center justify-between"
-            onClick={toggleDateRange}
+            onClick={openDateRange}
           >
             {formattedDateRange || "Select date range"}
+            {formattedDateRange && (
+              <Icon
+                icon="mdi:close-circle"
+                className="ml-2 text-gray-500 cursor-pointer hover:text-red-500"
+                onClick={clearDates}
+                title="Clear dates"
+              />
+            )}
           </div>
 
           {dateRangeOpen && (
-            <div className="absolute z-20 w-full mt-2 bg-white border border-gray-300 rounded-xl shadow-lg transition-all duration-300 ease-in-out p-4">
-              <div className="flex justify-between space-x-2">
-                <input
-                  type="date"
-                  name="startDate"
-                  value={startDate}
-                  onChange={handleDateChange}
-                  className="border border-gray-400 py-2 px-3 w-1/2"
-                />
-                <input
-                  type="date"
-                  name="endDate"
-                  value={endDate}
-                  onChange={handleDateChange}
-                  className="border border-gray-400 py-2 px-3 w-1/2"
-                />
-              </div>
-              <button
-                onClick={handleConfirm}
-                className="mt-2 bg-[#c4a053] text-white py-2 px-4 rounded-md"
-              >
-                Confirm
-              </button>
-            </div>
-          )}
+  <motion.div
+    initial={{ opacity: 0, y: -10 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -10 }}
+    className="absolute z-20 w-full mt-2 bg-white border border-gray-300 rounded-xl shadow-lg transition-all duration-300 ease-in-out p-4"
+  >
+    <div className="flex justify-between mb-2">
+      <DatePicker
+        selected={startDate}
+        onChange={(date) => setStartDate(date)}
+        selectsStart
+        startDate={startDate}
+        endDate={endDate}
+        inline
+      />
+      <DatePicker
+        selected={endDate}
+        onChange={(date) => setEndDate(date)}
+        selectsEnd
+        startDate={startDate}
+        endDate={endDate}
+        minDate={startDate}
+        inline
+      />
+    </div>
+    <div className="flex justify-between">
+      <button
+        onClick={handleDateConfirm}
+        className="mt-2 bg-[#c4a053] text-black py-2 px-4 rounded-md"
+      >
+        Confirm
+      </button>
+      <button
+        onClick={() => setDateRangeOpen(false)} // Close the calendars
+        className="mt-2 text-gray-600 py-2 px-4 rounded-md hover:text-red-500 transition-colors"
+      >
+        Close
+      </button>
+    </div>
+  </motion.div>
+)}
+
         </div>
 
         {/* Dynamic Room Selector */}
@@ -138,23 +164,23 @@ function Page() {
                       className="border focus:outline-none border-gray-300 rounded-md p-1"
                     >
                       {[...Array(10).keys()].map((i) => (
-                        <option key={i + 1} value={i + 1}
-                        className="focus:outline-none">
+                        <option key={i + 1} value={i + 1}>
                           {i + 1} {i + 1 === 1 ? "person" : "people"}
                         </option>
                       ))}
                     </select>
-                   
-                    <Icon icon="mi:close" 
-                     className="ml-2 text-gray-500 font-semibold h-5 w-5 cursor-pointer hover:text-red-500 transition-colors"
-                     onClick={() => removeRoom(room.id)}
-                     title="Remove room"  />
+                    <Icon
+                      icon="mi:close"
+                      className="ml-2 text-gray-500 font-semibold h-5 w-5 cursor-pointer hover:text-red-500 transition-colors"
+                      onClick={() => removeRoom(room.id)}
+                      title="Remove room"
+                    />
                   </motion.div>
                 ))}
               </AnimatePresence>
               <button
                 onClick={addRoom}
-                className="mt-2 bg-[#c4a053] text-white py-2 px-4 rounded-md hover:bg-opacity-90 transition-colors"
+                className="mt-2 bg-[#c4a053] text-black py-2 px-4 rounded-md hover:bg-opacity-90 transition-colors"
               >
                 Add Room
               </button>

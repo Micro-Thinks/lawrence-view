@@ -50,17 +50,18 @@ const Page = () => {
                 (card, index) => (
                   <div
                     key={index}
-                    className="bg-white shadow-lg hover:border-[#c4a053] duration-300 ease-in-out border w-full max-w-sm rounded-xl font-[sans-serif] overflow-hidden flex flex-col justify-between mx-auto mt-4"
+                    className="bg-white relative group transform-gpu transition-transform duration-500 shadow-lg hover:border-[#c4a053] ease-in-out border w-full max-w-sm rounded-xl font-[sans-serif] overflow-hidden flex flex-col justify-between mx-auto mt-4"
                   >
-                    <div>
+                    <div className="relative">
                       <Image
                         height={288}
                         width={383}
                         src={card.Imgsrc}
                         alt={card.name}
-                        className="h-auto object-center rounded-t-lg"
+                        className="h-auto transition-transform duration-500 ease-in-out transform group-hover:scale-110 object-center rounded-t-lg"
                         quality={100}
                       />
+                      <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300 rounded-t-lg"></div>
                     </div>
                   </div>
                 )
