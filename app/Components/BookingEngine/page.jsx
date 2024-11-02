@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion"; // Import Framer Motion for animations
+import { Icon } from "@iconify/react";
 
 function Page() {
   const [selectedOption, setSelectedOption] = useState("Select room");
@@ -9,18 +11,7 @@ function Page() {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [formattedDateRange, setFormattedDateRange] = useState("");
-
-  const options = [
-    { value: "1 Room 2 adults", label: "1 Room 2 adults" },
-    { value: "2 Room 2 adults", label: "2 Room 2 adults" },
-    { value: "2 Room 3 adults", label: "2 Room 3 adults" },
-    { value: "2 Room 4 adults", label: "2 Room 4 adults" },
-  ];
-
-  const handleOptionClick = (value) => {
-    setSelectedOption(value);
-    setIsOpen(false);
-  };
+  const [rooms, setRooms] = useState([{ id: 1, people: 1 }]);
 
   const handleDateChange = (e) => {
     const { name, value } = e.target;
@@ -52,13 +43,29 @@ function Page() {
     setDateRangeOpen(!dateRangeOpen);
   };
 
+  const handlePeopleChange = (roomId, people) => {
+    setRooms((prevRooms) =>
+      prevRooms.map((room) =>
+        room.id === roomId ? { ...room, people: Number(people) } : room
+      )
+    );
+  };
+
+  const addRoom = () => {
+    setRooms([...rooms, { id: rooms.length + 1, people: 1 }]);
+  };
+
+  const removeRoom = (roomId) => {
+    setRooms((prevRooms) => prevRooms.filter((room) => room.id !== roomId));
+  };
+
   return (
     <div>
-      <div className=" p-6  flex bg-[#2c2c2c] bg-opacity-55">
+      <div className="p-6 flex bg-[#2c2c2c] bg-opacity-55">
         {/* Single Input Date Range Picker */}
         <div className="relative w-[44vw]">
           <div
-            className="p-2 bg-gray-100 text-black border h-10  border-gray-300  transition-all duration-300 ease-in-out cursor-pointer flex items-center justify-between"
+            className="p-2 bg-gray-100 text-black border h-10 border-gray-300 transition-all duration-300 ease-in-out cursor-pointer flex items-center justify-between"
             onClick={toggleDateRange}
           >
             {formattedDateRange || "Select date range"}
@@ -92,10 +99,10 @@ function Page() {
           )}
         </div>
 
-        {/* Room Selector */}
-        <div className="relative">
+        {/* Dynamic Room Selector */}
+        <div className="relative w-[40vw] ml-4">
           <div
-            className=" p-2 bg-gray-100 text-black border h-10 w-[40vw] border-gray-300 transition-all duration-300 ease-in-out cursor-pointer flex items-center justify-between"
+            className="p-2 bg-gray-100 text-black border h-10 border-gray-300 transition-all duration-300 ease-in-out cursor-pointer flex items-center justify-between"
             onClick={() => setIsOpen(!isOpen)}
           >
             {selectedOption}
@@ -109,22 +116,54 @@ function Page() {
           </div>
 
           {isOpen && (
-            <ul className="absolute z-10 w-48 mt-2 bg-white border border-gray-300 rounded-xl shadow-lg transition-all duration-300 ease-in-out opacity-100">
-              {options.map((option, index) => (
-                <li
-                  key={index}
-                  onClick={() => handleOptionClick(option.value)}
-                  className="p-2 hover:bg-[#c4a053] hover:text-white cursor-pointer transition-colors duration-200 ease-in-out"
-                >
-                  {option.label}
-                </li>
-              ))}
-            </ul>
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="absolute z-10 w-full mt-2 bg-white border border-gray-300 rounded-xl shadow-lg p-4"
+            >
+              <AnimatePresence>
+                {rooms.map((room) => (
+                  <motion.div
+                    key={room.id}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    className="flex items-center mb-3"
+                  >
+                    <span className="mr-2">Room {room.id}:</span>
+                    <select
+                      value={room.people}
+                      onChange={(e) => handlePeopleChange(room.id, e.target.value)}
+                      className="border focus:outline-none border-gray-300 rounded-md p-1"
+                    >
+                      {[...Array(10).keys()].map((i) => (
+                        <option key={i + 1} value={i + 1}
+                        className="focus:outline-none">
+                          {i + 1} {i + 1 === 1 ? "person" : "people"}
+                        </option>
+                      ))}
+                    </select>
+                   
+                    <Icon icon="mi:close" 
+                     className="ml-2 text-gray-500 font-semibold h-5 w-5 cursor-pointer hover:text-red-500 transition-colors"
+                     onClick={() => removeRoom(room.id)}
+                     title="Remove room"  />
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+              <button
+                onClick={addRoom}
+                className="mt-2 bg-[#c4a053] text-white py-2 px-4 rounded-md hover:bg-opacity-90 transition-colors"
+              >
+                Add Room
+              </button>
+            </motion.div>
           )}
         </div>
 
         {/* Book Now Button */}
-        <button className="px-8 py-1 bg-[#c4a053] ml-3 text-black rounded-md">
+        <button className="px-8 w-full max-w-[12vw] py-1 bg-[#c4a053] ml-3 text-black rounded-md hover:bg-opacity-90 transition-colors">
           Book Now
         </button>
       </div>
