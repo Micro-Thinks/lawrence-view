@@ -48,7 +48,7 @@ const Page = () => {
                 (card, index) => (
                   <div
                     key={index}
-                    className="bg-white shadow-lg  hover:border-[#c4a053]  duration-300 ease-in-out border w-full max-w-xs rounded-xl font-[sans-serif] overflow-hidden flex flex-col  mx-auto mt-4"
+                    className="bg-white shadow-lg  hover:border-[#c4a053] border-4  duration-300 ease-in-out  w-full max-w-xs rounded-xl font-[sans-serif] overflow-hidden flex flex-col  mx-auto mt-4"
                   >
                     <div className="">
                       <Image
@@ -69,7 +69,7 @@ const Page = () => {
                     <div className="p-2 text-center">
                       <button
                         type="button"
-                        className="px-4 py-2 text-white text-sm tracking-wider font-semibold border-none outline-none bg-[#C4A053] rounded-xl"
+                        className="px-4 py-2 text-white text-sm tracking-wider border-3  border-[#c4a053] outline-none bg-black rounded-xl"
                       >
                         {card.button}
                       </button>

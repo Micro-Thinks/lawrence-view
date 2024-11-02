@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
+import { navdData } from "@/app/Helpers/Data";
 
 const HotelContactNewsletter = () => {
   const [email, setEmail] = useState("");
@@ -71,16 +72,38 @@ const HotelContactNewsletter = () => {
       {/* Contact Section */}
       <div className="w-full bg-black text-white py-8 px-4 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="grid md:grid-cols-3 gap-8 items-center">
             {/* Logo */}
             <div>
+              <h2 className="text-2xl mt-2">About</h2>
               <Image
                 src="/LVH-logo.webp"
                 alt="Lawrence View Hotel"
-                className="w-48"
+                className="w-28"
                 width={200}
                 height={200}
               />
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry&apos;s standard
+                dummy text ever since the 1500s
+              </p>
+            </div>
+            {/* Nav Items */}
+            <div className="space-y-4">
+              <h2 className="text-2xl mb-6">Links</h2>
+              <ul className="space-y-1">
+                {" "}
+                {/* Add Tailwind classes for styling as needed */}
+                {navdData.map((item, index) => (
+                  <li
+                    key={index}
+                    className="hover:text-[#c4a053] transition-colors"
+                  >
+                    <Link href={item.href}>{item.name}</Link>
+                  </li>
+                ))}
+              </ul>
             </div>
 
             {/* Contact Details */}

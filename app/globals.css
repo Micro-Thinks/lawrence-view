@@ -27,7 +27,9 @@ span {
 }
 
 /* Global styles for paragraphs */
-p {
+p,
+button,
+li {
   font-family: var(--font-readex-pro);
 }
 h1 {
@@ -39,8 +41,6 @@ h2 {
 /* span {
   font-size: 32px;
 } */
-
-
 
 @keyframes borderRotate {
   0% {
@@ -79,13 +79,12 @@ h2 {
   background: black;
 }
 
-
 ::selection {
-  background-color: #c4a053; 
-  color: #000000; 
+  background-color: #c4a053;
+  color: #000000;
 }
 
 ::-webkit-selection {
   background-color: #c4a053;
-  color: #000000; 
+  color: #000000;
 }
