@@ -9,7 +9,9 @@ const Page = () => {
 
   // Function to go directly to the first image
   const goToPrevious = () => {
-    setCurrentIndex(currentIndex - 1);
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+    }
   };
 
   // Function to go directly to the third image

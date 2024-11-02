@@ -85,7 +85,7 @@ const Page = () => {
               className="p-2 text-white  rounded-full "
             >
               <Image
-                src="/right-arrow.png"
+                src="/right-arrow.webp"
                 alt="right-arrow"
                 height={25}
                 width={25}
