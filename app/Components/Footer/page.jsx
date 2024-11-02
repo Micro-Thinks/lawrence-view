@@ -161,13 +161,19 @@ const HotelContactNewsletter = () => {
           <div>
             <ul className="text-white flex flex-col lg:flex-row xl:flex-row lg:items-center xl:items-center  lg:space-x-10 justify-evenly mt-10 space-y-2 lg:space-y-0">
               <Link href="/TermsandConditions">
-                <li className="cursor-pointer">T&Cs</li>
+                <li className="cursor-pointer hover:text-[#C4A053] transition-colors">
+                  T&Cs
+                </li>
               </Link>
               <Link href="/PrivacyPolicy">
-                <li className="cursor-pointer">Privacy Policy</li>
+                <li className="cursor-pointer hover:text-[#C4A053] transition-colors">
+                  Privacy Policy
+                </li>
               </Link>
               <Link href="/LegalNotice">
-                <li className="cursor-pointer">Legal Notice</li>
+                <li className="cursor-pointer hover:text-[#C4A053] transition-colors">
+                  Legal Notice
+                </li>
               </Link>
             </ul>
           </div>
