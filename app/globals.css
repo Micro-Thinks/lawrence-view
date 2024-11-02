@@ -88,3 +88,26 @@ h2 {
   background-color: #c4a053;
   color: #000000;
 }
+
+
+ul {
+  list-style-type: none; /* Remove bullet points */
+}
+
+li {
+  position: relative; /* Position relative to place underline */
+}
+
+.underline {
+  position: absolute;
+  left: 0;
+  bottom: -5px; 
+  height: 2px; 
+  background-color: #c4a053;
+  width: 0; 
+  transition: width 0.3s ease-in-out; 
+}
+
+li:hover .underline {
+  width: 100%; 
+}
