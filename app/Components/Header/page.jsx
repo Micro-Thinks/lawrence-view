@@ -1,73 +1,181 @@
-import { Icon } from "@iconify/react/dist/iconify.js";
+"use client";
 import Image from "next/image";
+import { useState } from "react";
 import Link from "next/link";
+import { navdData } from "@/app/Helpers/Data";
 
-const Header = () => {
+const HotelContactNewsletter = () => {
+  const [email, setEmail] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!validateEmail(email)) {
+      setErrorMessage("Please enter a valid email address.");
+      setSuccessMessage("");
+      return;
+    }
+    // Handle the subscription logic
+    console.log("Subscribed with email:", email);
+    setSuccessMessage("Thank you for subscribing!");
+    setErrorMessage("");
+    setEmail("");
+  };
+
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  };
+
   return (
-    <div className="fixed top-0 left-0 right-0 z-50">
-      {/* Header Section */}
-
-      <div className="bg-[#c4a053] h-8 max-w-screen lg:flex justify-between  p-4 hidden   ">
-        {/* child-1 */}
-
-        <div className="flex items-center space-x-2 ml-[1%]">
-          <Link
-            href="https://www.facebook.com/LawrenceViewHotelLahore"
-            target="_blank"
-          >
-            <Icon icon="gg:facebook" className="text-black h-6 w-6" />
-          </Link>
-          <Link
-            href="https://www.instagram.com/lawrence.view.hotel.lahore/"
-            target="_blank"
-          >
-            <Icon icon="line-md:instagram" className="text-black h-6 w-6" />
-          </Link>
-          <Link
-            href="https://www.linkedin.com/company/xsuite-digital/about/"
-            target="_blank"
-          >
-            <Icon icon="ri:linkedin-fill" className="text-black h-6 w-6" />
-          </Link>
+    <div className="w-full">
+      {/* Newsletter Section */}
+      <div className="relative w-full h-[100px] bg-[#c4A053] bg-cover bg-center">
+        <div className="absolute inset-0  ">
+          <div className="h-full flex items-center justify-center px-4 lg:px-8">
+            <div className="w-full max-w-6xl flex flex-col md:flex-row items-center justify-center gap-6">
+              <h2 className="text-black text-xl md:text-2xl font-medium uppercase">
+                Subscribe to our newsletter
+              </h2>
+              <div className="w-full max-w-md">
+                <form onSubmit={handleSubmit} className="flex">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email"
+                    className="flex-1 px-4 py-2 border border-gray-300  focus:outline-none focus:border-[#C4A053]"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    className="px-6 py-2 bg-black text-white font-medium   "
+                  >
+                    Subscribe
+                  </button>
+                </form>
+                {successMessage && (
+                  <p className="mt-2 text-green-400 text-sm">
+                    {successMessage}
+                  </p>
+                )}
+                {errorMessage && (
+                  <p className="mt-2 text-red-400 text-sm">{errorMessage}</p>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
-        {/* child-2 */}
+      </div>
 
-        <div className="flex space-x-4 mr-[1%]">
-          <div className="flex items-center space-x-1   text-black  duration-300 ease-in-out">
-            <Icon icon="prime:whatsapp" className="h-6 w-6" />
+      {/* Contact Section */}
+      <div className="w-full bg-black text-white py-8 px-4 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 items-center">
+            {/* Logo */}
+            <div>
+              <h2 className="text-2xl mt-2">About</h2>
+              <Image
+                src="/LVH-logo.webp"
+                alt="Lawrence View Hotel"
+                className="w-28"
+                width={200}
+                height={200}
+              />
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry&apos;s standard
+                dummy text ever since the 1500s
+              </p>
+            </div>
+            {/* Nav Items */}
+            <div className="space-y-4">
+              <h2 className="text-2xl mb-6">Links</h2>
+              <ul className="space-y-1">
+                {" "}
+                {/* Add Tailwind classes for styling as needed */}
+                {navdData.map((item, index) => (
+                  <li
+                    key={index}
+                    className="hover:text-[#c4a053] transition-colors"
+                  >
+                    <Link href={item.href}>{item.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-            <Link
-              href="https://wa.me/+923316361916 "
-              target="_blank"
-              className=" border-[#c4a053] pr-2  border-r-2"
-            >
-              0331 6361916{" "}
-            </Link>
-            {" | "}
+            {/* Contact Details */}
+            <div className="space-y-4">
+              <h2 className="text-2xl mb-6">GET IN TOUCH</h2>
+
+              <div className="flex items-start gap-3">
+                <p>
+                  54-A Lawrence Road, Near China Chowk opposite Jinnah Garden,
+                  Jubilee Town 54600 Lahore, Punjab Pakistan (PK)
+                </p>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <a
+                  href="tel:+923206361916"
+                  className=" hover:text-[#C4A053] transition-colors"
+                >
+                  +92 3206361916
+                </a>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <a
+                  href="mailto:lawrenceviewhotel@gmail.com"
+                  className=" hover:text-[#C4A053] transition-colors"
+                >
+                  lawrenceviewhotel@gmail.com
+                </a>
+              </div>
+            </div>
           </div>
-
-          <div className="flex items-center space-x-1 hover:text-black text-black  ">
-            <Icon icon="fluent:mail-16-regular" className="h-5 w-5" />
-
+          {/* Social icons */}
+          <div className="mt-10 border-t-2 p-4 border-white bg-black"></div>
+          <div className="text-white bg-black flex items-center justify-center space-x-8 ">
             <Link
-              href="mailto:info@xsuite.digital"
+              href="https://www.facebook.com/Microthinksbyzaheer?mibextid=LQQJ4d"
               target="_blank"
-              className="border-[#c4a053]  duration-300 ease-in-out border-r-2 pr-2"
             >
-              info@xsuite.digital
+              <Image src="/fb.png" alt="icon" height={30} width={30} />
             </Link>
-            {" | "}
+            <Link
+              href="https://www.instagram.com/microthinks?igsh=YnJ4cGJkem9zZWtx"
+              target="_blank"
+            >
+              <Image src="/insta.png" alt="icon" height={30} width={30} />
+            </Link>
+            <Link
+              href="https://www.linkedin.com/company/microthinks/posts/?feedView=all"
+              target="_blank"
+            >
+              <Image src="/linkedin.png" alt="icon" height={30} width={30} />
+            </Link>
           </div>
-          <div className="flex items-center space-x-1 group">
-            <Icon
-              icon="fluent:location-16-regular"
-              className="h-5 w-5 text-black group-hover:text-black duration-300 ease-in-out"
-            />
-            <Link href="https://maps.app.goo.gl/GG2dc7oKhrqR7zJX9">
-              <span className="text-black group-hover:text-black duration-300 ease-in-out">
-                Lawrence Road Lahore Pakistan
-              </span>
-            </Link>
+          <div>
+            <ul className="text-white flex flex-col lg:flex-row xl:flex-row lg:items-center xl:items-center  lg:space-x-10 justify-evenly mt-10 space-y-2 lg:space-y-0">
+              <Link href="/TermsandConditions">
+                <li className="cursor-pointer hover:text-[#C4A053] transition-colors">
+                  T&Cs
+                </li>
+              </Link>
+              <Link href="/PrivacyPolicy">
+                <li className="cursor-pointer hover:text-[#C4A053] transition-colors">
+                  Privacy Policy
+                </li>
+              </Link>
+              <Link href="/LegalNotice">
+                <li className="cursor-pointer hover:text-[#C4A053] transition-colors">
+                  Legal Notice
+                </li>
+              </Link>
+            </ul>
           </div>
         </div>
       </div>
@@ -75,4 +183,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HotelContactNewsletter;
