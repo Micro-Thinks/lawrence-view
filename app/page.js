@@ -4,6 +4,7 @@ import Gallery from "./Components/Gallery/page";
 import Service from "./Components/Service/page";
 import BookingEngine from "./Components/BookingEngine/page";
 import ChatIcon from "./ChatIcon/page";
+import Map from "./Components/Map/page";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       </div>
       <Gallery />
       <Service />
+      <Map />
       <ChatIcon />
     </div>
   );

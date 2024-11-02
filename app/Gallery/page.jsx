@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const Page = () => {
-  // State for initial load animation
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -34,23 +33,22 @@ const Page = () => {
                     transition-all duration-500 ease-out delay-[${
                       index * 100
                     }ms]
-                    hover:bg-gray-800 hover:shadow-xl hover:scale-105 transform hover:rotate-2
                     `}
                   style={{ perspective: "1000px" }}
                 >
-                  <div className="relative overflow-hidden rounded-t-lg group transform-gpu transition-transform duration-500 hover:rotate-1">
-                    {/* Image with scale-up and subtle tilt effect */}
+                  <div className="relative overflow-hidden rounded-t-lg group transform-gpu transition-transform duration-500">
+                    {/* Image with zoom-in and fade effect */}
                     <Image
                       height={288}
                       width={383}
                       src={card.Imgsrc}
                       alt={card.name}
-                      className="h-auto object-cover transition-transform duration-500 ease-in-out transform group-hover:scale-110 group-hover:rotate-1"
+                      className="h-auto object-cover transition-transform duration-500 ease-in-out transform group-hover:scale-110 group-hover:opacity-90"
                       quality={100}
                     />
                     {/* Animated Border */}
                     <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#c4a053] transition-all duration-300 ease-in-out"></div>
-                    {/* Text Overlay with Slide-up Effect */}
+                    {/* Text Overlay with Slide-up and Fade-in Effect */}
                     <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
                       <p className="text-white text-lg font-semibold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 ease-in-out">
                         {card.name}
