@@ -11,13 +11,17 @@ const Page = () => {
       <div className="">
           <Image src="/LVH-logo.webp" alt="lvh pic" height={100} width={100} />
         </div>
-        <ul className='flex justify-between items-center'>
+        <ul className='flex justify-between items-center relative'>
   {navdData.map((item, index) => (
-    <li key={index} className='text-white hover:text-[#c4a053] duration-300 ease-in-out mx-4'>
-      <Link href={item.href}>{item.name}</Link>
+    <li key={index} className='relative text-white mx-4 group'>
+      <Link href={item.href} className="relative z-10 hover:text-[#c4a053]">
+        {item.name}
+      </Link>
+      <div className='underline'></div>
     </li>
   ))}
 </ul>
+
 
 <div>
       <Link href="/Contact">

@@ -30,11 +30,11 @@ const HotelContactNewsletter = () => {
   return (
     <div className="w-full">
       {/* Newsletter Section */}
-      <div className="relative w-full h-[100px] bg-[url('/subscribe.webp')] bg-cover bg-center">
-        <div className="absolute inset-0 bg-black/50 ">
+      <div className="relative w-full h-[100px] bg-[#c4A053] bg-cover bg-center">
+        <div className="absolute inset-0  ">
           <div className="h-full flex items-center justify-center px-4 lg:px-8">
             <div className="w-full max-w-6xl flex flex-col md:flex-row items-center justify-center gap-6">
-              <h2 className="text-white text-xl md:text-2xl font-medium uppercase">
+              <h2 className="text-black text-xl md:text-2xl font-medium uppercase">
                 Subscribe to our newsletter
               </h2>
               <div className="w-full max-w-md">
@@ -49,7 +49,7 @@ const HotelContactNewsletter = () => {
                   />
                   <button
                     type="submit"
-                    className="px-6 py-2 bg-[#C4A053] text-white font-medium  hover:bg-[#B39048] transition-colors"
+                    className="px-6 py-2 bg-black text-white font-medium   "
                   >
                     Subscribe
                   </button>
