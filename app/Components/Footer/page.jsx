@@ -120,19 +120,19 @@ const HotelContactNewsletter = () => {
               href="https://www.facebook.com/Microthinksbyzaheer?mibextid=LQQJ4d"
               target="_blank"
             >
-              <Image src="/Facebook.webp" alt="icon" height={40} width={40} />
+              <Image src="/fb.png" alt="icon" height={30} width={30} />
             </Link>
             <Link
               href="https://www.instagram.com/microthinks?igsh=YnJ4cGJkem9zZWtx"
               target="_blank"
             >
-              <Image src="/Instagram.webp" alt="icon" height={40} width={40} />
+              <Image src="/insta.png" alt="icon" height={30} width={30} />
             </Link>
             <Link
               href="https://www.linkedin.com/company/microthinks/posts/?feedView=all"
               target="_blank"
             >
-              <Image src="/LinkedIn.webp" alt="icon" height={35} width={35} />
+              <Image src="/linkedin.png" alt="icon" height={30} width={30} />
             </Link>
           </div>
           <div>
